@@ -1,5 +1,23 @@
 Developemnt log
 
+## 2024-12-14 another approach
+I decided to create two programs that communicate using serial port.
+This will short cut us to Goal C, and allow for the other goals.
+Under simulation mode, the microcontroller program will include 
+C++ code which creates and communicates using a virtual serial port.
+Under device telemetry mode, the microcontroller will use the real serial port.
+
+Running:
+- virtual_serial.cpp
+  - `g++ -std=c++11 virtual_serial.cpp -pthread -o virtual_serial`
+  - `./virtual_serial`
+- main.py
+  - `python main.py`
+  - previous `main.py` is deleted
+
+
+
+
 ## 2024-12-08 git init
 Goal A: creating an application that can invoke C code and have a callback
 Goal B: run the target microcontroller program through the application
@@ -7,3 +25,4 @@ Goal C: telemetry and control of the microcontroller program
 Goal D: connect to actual microcontroller
 
 Goal A met with Claude, 45m
+
