@@ -15,6 +15,7 @@ Running:
   - `python main.py`
   - previous `main.py` is deleted
 
+Next up: serialize the object which represents the game state on the microcontroller
 
 
 

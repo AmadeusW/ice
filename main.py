@@ -1,5 +1,5 @@
 import serial
-import time
+import time, sys, argparse
 
 class SerialDeviceSimulator:
     def __init__(self, port_path, baudrate=115200, timeout=1):
@@ -100,12 +100,22 @@ class SerialDeviceSimulator:
             print("Serial port connection closed.")
 
 def main():
-    # Replace this with the path printed by your C++ virtual serial port program
-    PORT_PATH = "/dev/pts/3"  # Update with actual path
+    # Set up argument parser
+    parser = argparse.ArgumentParser(description='Serial Device Simulator')
+    parser.add_argument('port', type=str, help='Path to the serial port')
+    parser.add_argument('--baudrate', type=int, default=115200, 
+                        help='Baud rate (default: 115200)')
     
+    # Parse arguments
+    try:
+        args = parser.parse_args()
+    except Exception as e:
+        print(f"Argument parsing error: {e}")
+        sys.exit(1)
+
     try:
         # Create serial device simulator
-        device = SerialDeviceSimulator(PORT_PATH)
+        device = SerialDeviceSimulator(args.port, baudrate=args.baudrate)
         
         # Example: Send some initial commands
         device.send_command("INIT")
