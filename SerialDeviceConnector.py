@@ -36,7 +36,7 @@ class SerialDeviceConnector:
             
             # Convert to bytes and send
             self.ser.write(command.encode('utf-8'))
-            print(f"Sent command: {command.strip()}")
+            #print(f"Sent command: {command.strip()}")
         except Exception as e:
             print(f"Error sending command: {e}")
 
@@ -53,10 +53,10 @@ class SerialDeviceConnector:
             
             if response:
                 decoded_response = response.decode('utf-8').strip()
-                print(f"Received response: {decoded_response}")
+                #print(f"Received response: {decoded_response}")
                 return decoded_response
             else:
-                print("No response received")
+                #print("No response received")
                 return None
         except Exception as e:
             print(f"Error reading response: {e}")
