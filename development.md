@@ -1,12 +1,19 @@
 Developemnt log
 
+## 2024-12-16
+Configuration file loader
+Next up:
+-[ ] Create the curses dashboard using that configuration, and hook up keyboard events
+
+
 ## 2024-12-15 curses dashboard
 Created a curses dashboard that displays a sample state, and sends it to the device on each update
 the device succesfully receives this information!
 
 Next up: 
-- make this extensible such that Dashboard loads _configuration_: user friendly name, serialization order, keyboard shortcut for toggling
-- Hook up the received data to the real microcontroller code
+-[ ] make this extensible such that Dashboard loads _configuration_: user friendly name, serialization order, keyboard shortcut for toggling
+-[ ] Hook up the received data to the real microcontroller code
+-[ ] Replace all print with message handler, which redirects to curses if possible
 
 ## 2024-12-14 another approach
 I decided to create two programs that communicate using serial port.

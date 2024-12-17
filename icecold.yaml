@@ -1,0 +1,67 @@
+joystick_left_up:
+  type: boolean
+  title: Left Joystick Up
+  key: w
+  kind: input
+joystick_left_down:
+  type: boolean
+  title: Left Joystick Down
+  key: s
+  kind: input
+joystick_right_up:
+  type: boolean
+  title: Right Joystick Up
+  key: up
+  kind: input
+joystick_right_down:
+  type: boolean
+  title: Right Joystick Down
+  key: down
+  kind: input
+limit_left_up:
+  type: boolean
+  title: Limit Top Left
+  kind: input
+limit_left_down:
+  type: boolean
+  title: Limit Bottom Left
+  kind: input
+limit_right_up:
+  type: boolean
+  title: Limit Top Right
+  kind: input
+limit_right_down:
+  type: boolean
+  title: Limit Bottom Right
+  kind: input
+bottom:
+  type: momentary
+  title: Ball drop sensor
+  key: backspace
+  kind: input
+p1:
+  type: momentary
+  title: Port 1
+  key: 1
+  kind: input
+p2:
+  type: momentary
+  title: Port 2
+  key: 2
+  kind: input
+tick:
+  type: uint
+  title: Tick
+  kind: state
+score:
+  type: uint
+  title: Score
+  kind: state
+level:
+  type: uint
+  title: Level
+  kind: state
+balls:
+  type: uint
+  title: Balls
+  kind: state
