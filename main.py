@@ -15,7 +15,8 @@ def main():
 
     try:
         device = SerialDeviceConnector(args.port, baudrate=args.baudrate)
-        dashboard = Dashboard(device)
+        configuration = Configuration('icecold.yaml')
+        dashboard = Dashboard(device, configuration)
         dashboard.begin_session()
     except Exception as e:
         print(f"Error in main: {e}")

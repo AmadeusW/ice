@@ -2,8 +2,9 @@ import time, curses
 from SerialDeviceConnector import SerialDeviceConnector
 
 class Dashboard:
-    def __init__(self, device):
+    def __init__(self, device, configuration):
         self.device = device
+        self.configuration = configuration
 
     def curses_loop(self, stdscr):
         # Enable keypad mode
@@ -19,25 +20,22 @@ class Dashboard:
 
         while True:
             try:
-                stdscr.addstr(0, 0, f"Flag1: {'ON' if state['flag1'] else 'OFF'}   ")  # Trailing spaces erase leftovers
-                stdscr.addstr(1, 0, f"Flag2: {'ON' if state['flag2'] else 'OFF'}   ")
-                stdscr.addstr(2, 0, f"Value: {state['value']}   ")
-                stdscr.refresh()
-
                 # Get user input
                 key = stdscr.getch()
 
-                # Update state based on input
-                if key == ord('1'):
-                    state['flag1'] = not state['flag1']
-                elif key == ord('2'):
-                    state['flag2'] = not state['flag2']
-                elif key == ord('+'):
-                    state['value'] += 1
-                elif key == ord('-'):
-                    state['value'] -= 1
-                elif key == ord('q'):
-                    break
+                # Enumerate configuration
+                i = 0
+                for identifier, properties in configuration.enumerate_items:
+                    i++
+                    stdscr.addstr(i, 0, f"{properties['kind']} {properties['type']} \"{properties['title']}\"                         ")  # Trailing spaces erase leftovers
+
+                    if 'key' in properties:
+                        if key == ord(piece['key']):
+                            self.device.send_command(f"{identifier} triggered")
+                            stdscr.addstr(i, 40, "PRESSED!")
+                        else:
+                            stdscr.addstr(i, 40, "        ")  # Clear previous "PRESSED!"
+                stdscr.refresh()
 
                 # Send state to the device
                 serialized_state = f"{int(state['flag1'])} {int(state['flag2'])} {state['value']}"

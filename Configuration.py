@@ -20,14 +20,8 @@ class Configuration:
         """
         Returns enumerator over data
         """
-        try:
-            return enumerate(self.data.items())
-        except Exception as e:
-            print(f"Error accessing data: {e}")
+        return enumerate(self.data.items())
 
     def print(self):
         for key, piece in self.data.items():
             print(f"{piece['kind']} {piece['type']} {key} \"{piece['title']}\"")
-    
-icecold = Configuration('icecold.yaml')
-icecold.print()
