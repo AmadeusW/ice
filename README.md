@@ -1,3 +1,5 @@
-# Interactive Control Engine
+# Microcontroller instrumentation, simulation and telemetry
 
-Software simulator or connector to a physical device. Supports configuration and telemetry from hardware devices.
+Interactive Control Engine for microcontroller devices and their simulators.
+Supports configuration, telemetry and making callbacks in microcontroller code.
+The code is executed on physical device or on a simulator, either one connected through a serial port.
