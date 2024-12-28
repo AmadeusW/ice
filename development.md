@@ -1,5 +1,19 @@
 Developemnt log
 
+## 2024-12-27
+To get started, open 2 linux terminals
+
+Device connector/simulator terminal
+1. g++ -std=c++11 virtual_serial.cpp -pthread -o virtual_serial
+1. ./virtual_serial
+
+Dashboard terminal
+1. venv/scripts/activate
+1. pip install -r requirements.txt
+1. python main.py
+
+How about give it a better name, ICE - Interactive Control Engine
+
 ## 2024-12-16
 Configuration file loader
 Next up:

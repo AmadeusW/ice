@@ -26,7 +26,7 @@ class Dashboard:
                 # Enumerate configuration
                 i = 0
                 for identifier, properties in configuration.enumerate_items:
-                    i++
+                    i = i+1
                     stdscr.addstr(i, 0, f"{properties['kind']} {properties['type']} \"{properties['title']}\"                         ")  # Trailing spaces erase leftovers
 
                     if 'key' in properties:
